@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData">
+    <edmx:Reference Uri="http://sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_AGGREGATION',Version='0001',SAP__Origin='LOCAL')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="Org.OData.Aggregation.V1" Alias="Aggregation"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="http://sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_ANALYTICS',Version='0001',SAP__Origin='LOCAL')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.Analytics.v1" Alias="Analytics"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="http://sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_CAPABILITIES',Version='0001',SAP__Origin='LOCAL')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="Org.OData.Capabilities.V1" Alias="Capabilities"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="http://sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_CODELIST',Version='0001',SAP__Origin='LOCAL')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.CodeList.v1" Alias="SAP__CodeList"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="http://sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMON',Version='0001',SAP__Origin='LOCAL')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="Common"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="http://sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMUNICATION',Version='0001',SAP__Origin='LOCAL')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.Communication.v1" Alias="Communication"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="http://sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_MEASURES',Version='0001',SAP__Origin='LOCAL')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="Org.OData.Measures.V1" Alias="Measures"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="http://sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_PERSONALDATA',Version='0001',SAP__Origin='LOCAL')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.PersonalData.v1" Alias="PersonalData"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="http://sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_UI',Version='0001',SAP__Origin='LOCAL')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.UI.v1" Alias="UI"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="http://sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_VALIDATION',Version='0001',SAP__Origin='LOCAL')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="Org.OData.Validation.V1" Alias="Validation"/>
+    </edmx:Reference>
+    <edmx:DataServices m:DataServiceVersion="2.0">
+        <Schema Namespace="ZC_DM_TMD_CON2_CDS" xml:lang="en" sap:schema-version="1" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+            <EntityType Name="ZC_DM_TMD_CON2Type" sap:label="TMD Characteristics Report" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="tplnr"/>
+                    <PropertyRef Name="atnam"/>
+                </Key>
+                <Property Name="tplnr" Type="Edm.String" Nullable="false" MaxLength="40" sap:display-format="UpperCase" sap:required-in-filter="false" sap:label="Functional Location" sap:value-list="standard"/>
+                <Property Name="atnam" Type="Edm.String" Nullable="false" MaxLength="30" sap:display-format="UpperCase" sap:required-in-filter="false" sap:label="Characteristic name" sap:quickinfo="Characteristic Name" sap:value-list="standard"/>
+                <Property Name="class" Type="Edm.String" MaxLength="18" sap:display-format="UpperCase" sap:label="Class number"/>
+                <Property Name="atwrt" Type="Edm.String" MaxLength="70" sap:label="Characteristic Value"/>
+                <Property Name="atflv" Type="Edm.Double" sap:label="Numerical Characteristic value" sap:quickinfo="Internal floating point from"/>
+                <NavigationProperty Name="to_valuehelp" Relationship="ZC_DM_TMD_CON2_CDS.assoc_1EE9F8E9D19AD6D2097BC6D4BDBA4335" FromRole="FromRole_assoc_1EE9F8E9D19AD6D2097BC6D4BDBA4335" ToRole="ToRole_assoc_1EE9F8E9D19AD6D2097BC6D4BDBA4335"/>
+                <NavigationProperty Name="to_valuehelp1" Relationship="ZC_DM_TMD_CON2_CDS.assoc_8EFC353C6FB5E3A010267A1C931943CF" FromRole="FromRole_assoc_8EFC353C6FB5E3A010267A1C931943CF" ToRole="ToRole_assoc_8EFC353C6FB5E3A010267A1C931943CF"/>
+            </EntityType>
+            <EntityType Name="ZI_DM_TMD_INT1Type" sap:label="Interface view for Characteristics" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="tplnr"/>
+                </Key>
+                <Property Name="tplnr" Type="Edm.String" Nullable="false" MaxLength="40" sap:display-format="UpperCase" sap:label="Functional Location"/>
+            </EntityType>
+            <EntityType Name="ZI_DM_TMD_INT2Type" sap:label="Interface view for Characteristics" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="atnam"/>
+                </Key>
+                <Property Name="atnam" Type="Edm.String" Nullable="false" MaxLength="30" sap:display-format="UpperCase" sap:label="Characteristic Name"/>
+                <Property Name="atinn" Type="Edm.String" MaxLength="30" sap:display-format="NonNegative" sap:label="Internal char no." sap:quickinfo="Internal characteristic"/>
+                <Property Name="atwrt" Type="Edm.String" MaxLength="70" sap:label="Characteristic Value"/>
+            </EntityType>
+            <Association Name="assoc_8EFC353C6FB5E3A010267A1C931943CF" sap:content-version="1">
+                <End Type="ZC_DM_TMD_CON2_CDS.ZC_DM_TMD_CON2Type" Multiplicity="1" Role="FromRole_assoc_8EFC353C6FB5E3A010267A1C931943CF"/>
+                <End Type="ZC_DM_TMD_CON2_CDS.ZI_DM_TMD_INT2Type" Multiplicity="0..1" Role="ToRole_assoc_8EFC353C6FB5E3A010267A1C931943CF"/>
+            </Association>
+            <Association Name="assoc_1EE9F8E9D19AD6D2097BC6D4BDBA4335" sap:content-version="1">
+                <End Type="ZC_DM_TMD_CON2_CDS.ZC_DM_TMD_CON2Type" Multiplicity="1" Role="FromRole_assoc_1EE9F8E9D19AD6D2097BC6D4BDBA4335"/>
+                <End Type="ZC_DM_TMD_CON2_CDS.ZI_DM_TMD_INT1Type" Multiplicity="0..1" Role="ToRole_assoc_1EE9F8E9D19AD6D2097BC6D4BDBA4335"/>
+            </Association>
+            <EntityContainer Name="ZC_DM_TMD_CON2_CDS_Entities" m:IsDefaultEntityContainer="true" sap:message-scope-supported="true" sap:supported-formats="atom json xlsx">
+                <EntitySet Name="ZC_DM_TMD_CON2" EntityType="ZC_DM_TMD_CON2_CDS.ZC_DM_TMD_CON2Type" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
+                <EntitySet Name="ZI_DM_TMD_INT1" EntityType="ZC_DM_TMD_CON2_CDS.ZI_DM_TMD_INT1Type" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
+                <EntitySet Name="ZI_DM_TMD_INT2" EntityType="ZC_DM_TMD_CON2_CDS.ZI_DM_TMD_INT2Type" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
+                <AssociationSet Name="assoc_8EFC353C6FB5E3A010267A1C931943CF" Association="ZC_DM_TMD_CON2_CDS.assoc_8EFC353C6FB5E3A010267A1C931943CF" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="ZC_DM_TMD_CON2" Role="FromRole_assoc_8EFC353C6FB5E3A010267A1C931943CF"/>
+                    <End EntitySet="ZI_DM_TMD_INT2" Role="ToRole_assoc_8EFC353C6FB5E3A010267A1C931943CF"/>
+                </AssociationSet>
+                <AssociationSet Name="assoc_1EE9F8E9D19AD6D2097BC6D4BDBA4335" Association="ZC_DM_TMD_CON2_CDS.assoc_1EE9F8E9D19AD6D2097BC6D4BDBA4335" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="ZC_DM_TMD_CON2" Role="FromRole_assoc_1EE9F8E9D19AD6D2097BC6D4BDBA4335"/>
+                    <End EntitySet="ZI_DM_TMD_INT1" Role="ToRole_assoc_1EE9F8E9D19AD6D2097BC6D4BDBA4335"/>
+                </AssociationSet>
+            </EntityContainer>
+            <Annotation Term="Core.SchemaVersion" String="1.0.0" xmlns="http://docs.oasis-open.org/odata/ns/edm"/>
+            <Annotations Target="ZC_DM_TMD_CON2_CDS.ZC_DM_TMD_CON2Type/tplnr" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ValueList">
+                    <Record>
+                        <PropertyValue Property="Label" String="Interface view for Characteristics"/>
+                        <PropertyValue Property="CollectionPath" String="ZI_DM_TMD_INT1"/>
+                        <PropertyValue Property="SearchSupported" Bool="false"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="tplnr"/>
+                                    <PropertyValue Property="ValueListProperty" String="tplnr"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="ZC_DM_TMD_CON2_CDS.ZC_DM_TMD_CON2Type/atnam" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ValueList">
+                    <Record>
+                        <PropertyValue Property="Label" String="Interface view for Characteristics"/>
+                        <PropertyValue Property="CollectionPath" String="ZI_DM_TMD_INT2"/>
+                        <PropertyValue Property="SearchSupported" Bool="false"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="atnam"/>
+                                    <PropertyValue Property="ValueListProperty" String="atnam"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="atinn"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="atwrt"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="ZC_DM_TMD_CON2_CDS.ZC_DM_TMD_CON2_CDS_Entities" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ApplyMultiUnitBehaviorForSortingAndFiltering" Bool="true"/>
+            </Annotations>
+            <Annotations Target="ZC_DM_TMD_CON2_CDS.ZC_DM_TMD_CON2_CDS_Entities/ZC_DM_TMD_CON2" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Capabilities.NavigationRestrictions">
+                    <Record>
+                        <PropertyValue Property="RestrictedProperties">
+                            <Collection>
+                                <Record>
+                                    <PropertyValue Property="NavigationProperty" NavigationPropertyPath="to_valuehelp"/>
+                                    <PropertyValue Property="InsertRestrictions">
+                                        <Record>
+                                            <PropertyValue Property="Insertable" Bool="false"/>
+                                        </Record>
+                                    </PropertyValue>
+                                </Record>
+                                <Record>
+                                    <PropertyValue Property="NavigationProperty" NavigationPropertyPath="to_valuehelp1"/>
+                                    <PropertyValue Property="InsertRestrictions">
+                                        <Record>
+                                            <PropertyValue Property="Insertable" Bool="false"/>
+                                        </Record>
+                                    </PropertyValue>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <atom:link rel="self" href="http://sapsdvapp.aws.londonhydro.cloud:8000/sap/opu/odata/sap/ZC_DM_TMD_CON2_CDS/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+            <atom:link rel="latest-version" href="http://sapsdvapp.aws.londonhydro.cloud:8000/sap/opu/odata/sap/ZC_DM_TMD_CON2_CDS/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>
